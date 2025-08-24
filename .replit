@@ -6,36 +6,3 @@ expertMode = true
 channel = "stable-25_05"
 
 [workflows]
-runButton = "Project"
-
-[[workflows.workflow]]
-name = "Project"
-mode = "parallel"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "Reddit Bot"
-
-[[workflows.workflow.tasks]]
-task = "workflow.run"
-args = "reddit_bot_workflow"
-
-[[workflows.workflow]]
-name = "Reddit Bot"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "pip install praw python-dotenv && python main.py"
-
-[workflows.workflow.metadata]
-outputType = "console"
-
-[[workflows.workflow]]
-name = "reddit_bot_workflow"
-author = "agent"
-
-[[workflows.workflow.tasks]]
-task = "shell.exec"
-args = "pip install praw python-dotenv && python main.py"
