@@ -2,7 +2,7 @@
 
 # automod_lover-bot
 
-A Python Reddit bot that monitors r/UpvoteAutomod and replies "Good bot" to AutoModerator comments and works intelligently.
+A Python Reddit bot that monitors r/UpvoteAutomod and replies "Good bot" to AutoModerator comments and works intelligently. The bot uses Python version 3.11.13 and is designed to work with Python 3.7 or higher.
 
 ## Features
 
