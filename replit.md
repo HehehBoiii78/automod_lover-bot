@@ -1,14 +1,12 @@
-# AutomodLoverBot
+<img width="70" height="70" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/3981f135-40be-458e-ba68-8f6641140a3f" />
+
+# automod_lover-bot
 
 ## Overview
 
-AutomodLoverBot is a Python Reddit bot that automatically monitors the r/UpvoteAutomod subreddit and responds with "Good bot" to AutoModerator comments. The bot continuously scans for new posts, identifies AutoModerator comments within those posts, and replies appropriately while respecting Reddit's API rate limits. It features intelligent rate limit handling, comprehensive logging, and robust error recovery mechanisms to ensure continuous operation.
+automod_lover-bot is a Python Reddit bot that automatically monitors the r/UpvoteAutomod subreddit and responds with "Good bot" to AutoModerator comments. The bot continuously scans for new posts, identifies AutoModerator comments within those posts, and replies appropriately while respecting Reddit's API rate limits.
 
-## User Preferences
-
-Preferred communication style: Simple, everyday language.
-
-## System Architecture
+## Architecture
 
 ### Core Bot Architecture
 The system follows a modular, single-threaded architecture with three main components:
@@ -65,3 +63,6 @@ The bot operates in a continuous loop:
 - **Configuration Files**: `.env` for environment variables, `.env.example` as template
 - **Log Files**: `automod_lover_bot.log` for persistent operation logging
 - **Runtime Files**: No database dependencies - all state maintained in memory
+
+## Hosting location
+The bot is hosted on PythonAnywhere, where it runs continuously.
