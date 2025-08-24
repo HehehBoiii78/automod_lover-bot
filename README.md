@@ -1,3 +1,5 @@
+<img width="70" height="70" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/7b7e6391-1471-4c7a-9c77-272d79d156c4" />
+
 # automod_lover-bot
 
 A Python Reddit bot that monitors r/UpvoteAutomod and replies "Good bot" to AutoModerator comments and works intelligently.
