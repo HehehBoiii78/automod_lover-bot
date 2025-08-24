@@ -1,9 +1,6 @@
 <img width="70" height="70" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/3981f135-40be-458e-ba68-8f6641140a3f" />
 
 # automod_lover-bot
-
-## Overview
-
 automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments, while respecting Reddit's API rate limits and handling errors properly.
 
 ## Architecture
@@ -16,7 +13,7 @@ The system implements a modular, single-threaded architecture built around three
 - **Rate Limit Parser**: Specialized component for parsing Reddit API error messages and extracting precise wait times to handle rate limiting gracefully
 
 ### Reddit API Integration
-The bot leverages PRAW (Python Reddit API Wrapper) for all Reddit interactions, using OAuth2 script-type authentication to maintain a persistent connection throughout operation. This design choice provides reliable access to Reddit's API while handling authentication automatically.
+The bot uses PRAW (Python Reddit API Wrapper) for all Reddit interactions, using OAuth2 script-type authentication to maintain a persistent connection throughout operation. This design choice provides reliable access to Reddit's API while handling authentication automatically.
 
 ### Error Handling and Rate Limiting
 Implements intelligent rate limit detection by parsing Reddit API error messages using regex patterns. The system can extract wait times from various error message formats (minutes, seconds, hours) and automatically adjust delays to respect Reddit's rate limits without manual intervention.
@@ -51,11 +48,6 @@ Employs Python's built-in logging module with dual output streams - file-based l
 - **logging**: Comprehensive logging system for monitoring bot activity and debugging
 - **time**: Timing controls for rate limiting and operational delays
 - **re**: Regular expression parsing for rate limit error message analysis
-
-### Configuration Management
-- **Environment Variables**: Secure storage of Reddit API credentials (CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD)
-- **Configurable Parameters**: Timing settings for comment delays, monitoring intervals, and error retry logic
-- **Validation Logic**: Ensures required credentials are present before bot operation begins
 
 ## Hosting location
 The bot is hosted on PythonAnywhere, where it runs continuously.
