@@ -13,3 +13,6 @@ A Python Reddit bot that monitors r/UpvoteAutomod and replies "Good bot" to Auto
 - Switches monitoring to newer posts when they appear
 - Intelligently handles Reddit API rate limits by parsing error messages
 - Continuous and efficient operation with comprehensive logging
+
+## The Bot's Profile
+The bot is live! It has its own Reddit account, check it out at [u/automod_lover-bot](https://www.reddit.com/user/automod_lover-bot).
