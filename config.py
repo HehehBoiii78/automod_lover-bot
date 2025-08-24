@@ -20,7 +20,7 @@ class BotConfig:
         self.PASSWORD = os.getenv('REDDIT_PASSWORD', '')
         
         # Bot Configuration
-        self.USER_AGENT = f"python:automod_lover_bot:v1.0 (by /u/{self.USERNAME})"
+        self.USER_AGENT = f"python:automod_lover_bot:v1.0 (by u/{self.USERNAME})"
         self.TARGET_SUBREDDIT = 'UpvoteAutomod'
         self.TARGET_USER = 'AutoModerator'
         self.REPLY_MESSAGE = 'Good bot'
