@@ -1,19 +1,13 @@
 <img width="70" height="70" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/3981f135-40be-458e-ba68-8f6641140a3f" />
 
 # automod_lover-bot
+
 automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments, while respecting Reddit's API rate limits and handling errors properly.
 
 ## Architecture
 
-### Core Bot Architecture
-The system implements a modular, single-threaded architecture built around three primary components:
-
-- **Main Bot Controller**: Orchestrates the primary monitoring loop, handles Reddit API interactions, and manages post switching logic for optimal coverage
-- **Configuration Manager**: Centralizes all bot settings including API credentials, timing parameters, and validation logic to ensure secure and configurable operation
-- **Rate Limit Parser**: Specialized component for parsing Reddit API error messages and extracting precise wait times to handle rate limiting gracefully
-
 ### Reddit API Integration
-The bot uses PRAW (Python Reddit API Wrapper) for all Reddit interactions, using OAuth2 script-type authentication to maintain a persistent connection throughout operation. This design choice provides reliable access to Reddit's API while handling authentication automatically.
+The bot uses PRAW (Python Reddit API Wrapper) for all Reddit interactions, using OAuth2 script-type authentication to maintain a persistent connection throughout operation. This provides reliable access to Reddit's API while handling authentication automatically.
 
 ### Error Handling and Rate Limiting
 Implements intelligent rate limit detection by parsing Reddit API error messages using regex patterns. The system can extract wait times from various error message formats (minutes, seconds, hours) and automatically adjust delays to respect Reddit's rate limits without manual intervention.
