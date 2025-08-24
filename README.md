@@ -2,13 +2,9 @@
 
 ## Overview
 
-automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments. The bot continuously scans for new posts, switches to monitoring the newest posts, and maintains a persistent watch for AutoModerator activity to provide automated positive feedback.
+automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments, while respecting Reddit's API rate limits and handling errors properly.
 
-## User Preferences
-
-Preferred communication style: Simple, everyday language.
-
-## System Architecture
+## Architecture
 
 ### Core Bot Architecture
 The system implements a modular, single-threaded architecture built around three primary components:
@@ -58,3 +54,6 @@ Employs Python's built-in logging module with dual output streams - file-based l
 - **Environment Variables**: Secure storage of Reddit API credentials (CLIENT_ID, CLIENT_SECRET, USERNAME, PASSWORD)
 - **Configurable Parameters**: Timing settings for comment delays, monitoring intervals, and error retry logic
 - **Validation Logic**: Ensures required credentials are present before bot operation begins
+
+## Hosting location
+The bot is hosted on PythonAnywhere, where it runs continuously.
