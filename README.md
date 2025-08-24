@@ -1,3 +1,5 @@
+<img width="70" height="70" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/3981f135-40be-458e-ba68-8f6641140a3f" />
+
 # automod_lover-bot
 
 ## Overview
