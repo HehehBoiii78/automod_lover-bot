@@ -27,7 +27,7 @@ class AutomodLoverBot:
     def _setup_logging(self):
         """Set up logging configuration."""
         # Clear the log file if it exists to prevent it from growing too large
-        log_file = 'automod_lover_bot.log'
+        log_file = 'automod_lover-bot.log'
         if os.path.exists(log_file):
             open(log_file, 'w').close()  # Clear the file contents
             
@@ -39,7 +39,7 @@ class AutomodLoverBot:
                 logging.StreamHandler(sys.stdout)
             ]
         )
-        return logging.getLogger('AutomodLoverBot')
+        return logging.getLogger('automod_lover-bot')
         
     def _initialize_reddit(self):
         """Initialize Reddit API connection using PRAW."""
@@ -203,7 +203,7 @@ class AutomodLoverBot:
                 
     def run(self):
         """Main bot execution loop."""
-        self.logger.info("Starting AutomodLoverBot...")
+        self.logger.info("Starting automod_lover-bot...")
         
         try:
             while True:

@@ -1,5 +1,5 @@
 """
-Configuration module for AutomodLoverBot
+Configuration module for automod_lover-bot
 Handles environment variables and bot settings.
 """
 
