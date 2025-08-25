@@ -26,11 +26,16 @@ class AutomodLoverBot:
         
     def _setup_logging(self):
         """Set up logging configuration."""
+        # Clear the log file if it exists to prevent it from growing too large
+        log_file = 'automod_lover_bot.log'
+        if os.path.exists(log_file):
+            open(log_file, 'w').close()  # Clear the file contents
+            
         logging.basicConfig(
             level=logging.INFO,
             format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
             handlers=[
-                logging.FileHandler('automod_lover_bot.log'),
+                logging.FileHandler(log_file),
                 logging.StreamHandler(sys.stdout)
             ]
         )
