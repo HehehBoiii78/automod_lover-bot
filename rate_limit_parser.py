@@ -20,6 +20,10 @@ class RateLimitParser:
             r'try again in (\d+) second[s]?',
             # "you are doing that too much. try again in 1 hour."
             r'try again in (\d+) hour[s]?',
+            # "Take a break for 9 minutes before trying again."
+            r'take a break for (\d+) minute[s]?',
+            r'take a break for (\d+) second[s]?', 
+            r'take a break for (\d+) hour[s]?',
             # Alternative formats
             r'wait (\d+) minute[s]?',
             r'wait (\d+) second[s]?',
@@ -49,6 +53,7 @@ class RateLimitParser:
         rate_limit_indicators = [
             'doing that too much',
             'try again in',
+            'take a break for',
             'rate limit',
             'wait'
         ]
