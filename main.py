@@ -99,6 +99,38 @@ class AutomodLoverBot:
             self.logger.error(f"Error finding AutoModerator comments: {str(e)}")
             return []
             
+    def check_existing_replies(self, post):
+        """Check for existing 'Good bot' replies by this bot to avoid duplicates."""
+        try:
+            # Refresh the post to get latest comments
+            post._fetch()
+            post.comments.replace_more(limit=None)
+            
+            existing_replies_count = 0
+            
+            for comment in post.comments.list():
+                # Check if this is an AutoModerator comment
+                if (comment.author and 
+                    comment.author.name.lower() == self.config.TARGET_USER.lower()):
+                    
+                    # Check if our bot has already replied to this comment
+                    for reply in comment.replies:
+                        if (reply.author and 
+                            reply.author.name.lower() == self.config.USERNAME.lower() and
+                            reply.body.strip().lower() == self.config.REPLY_MESSAGE.lower()):
+                            # Mark this AutoModerator comment as already replied to
+                            self.replied_comments.add(comment.id)
+                            existing_replies_count += 1
+                            break
+                            
+            if existing_replies_count > 0:
+                self.logger.info(f"Found {existing_replies_count} AutoModerator comments that were already replied to in previous sessions")
+            else:
+                self.logger.info("No existing bot replies found in this post")
+                
+        except Exception as e:
+            self.logger.error(f"Error checking existing replies: {str(e)}")
+            
     def reply_to_comment(self, comment):
         """Reply to a specific comment with rate limit handling."""
         try:
@@ -138,6 +170,9 @@ class AutomodLoverBot:
     def monitor_post(self, post):
         """Monitor a specific post for new AutoModerator comments."""
         self.logger.info(f"Starting to monitor post: {post.title} (ID: {post.id})")
+        
+        # Check for existing replies from previous sessions to avoid duplicates
+        self.check_existing_replies(post)
         
         while True:
             try:
