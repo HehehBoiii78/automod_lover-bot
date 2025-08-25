@@ -5,6 +5,7 @@ Monitors r/UpvoteAutomod for newest posts and replies "Good bot" to AutoModerato
 """
 
 import praw
+import prawcore
 import time
 import logging
 import os
@@ -76,6 +77,8 @@ class AutomodLoverBot:
         """Find all comments by AutoModerator in the given post."""
         automod_comments = []
         try:
+            # Refresh the post to get the latest comments
+            post._fetch()
             post.comments.replace_more(limit=None)
             
             for comment in post.comments.list():
@@ -103,33 +106,29 @@ class AutomodLoverBot:
             self.logger.info(f"Successfully replied to comment {comment.id} with reply ID {reply.id}")
             return True
             
-        except praw.exceptions.RedditAPIException as e:
-            # Handle Reddit API exceptions, including rate limits
-            for exception in e.items:
-                error_message = str(exception)
-                self.logger.warning(f"Reddit API Exception: {error_message}")
-                
-                # Check if it's a rate limit error
-                wait_time = self.rate_parser.parse_rate_limit_error(error_message)
-                if wait_time > 0:
-                    self.logger.info(f"Rate limited. Waiting for {wait_time} seconds...")
-                    time.sleep(wait_time + self.config.COMMENT_DELAY)  # Add extra delay after rate limit
-                    
-                    # Retry the comment
-                    try:
-                        reply = comment.reply(self.config.REPLY_MESSAGE)
-                        self.replied_comments.add(comment.id)
-                        self.logger.info(f"Successfully replied to comment {comment.id} after rate limit wait")
-                        return True
-                    except Exception as retry_e:
-                        self.logger.error(f"Failed to reply after rate limit wait: {str(retry_e)}")
-                        return False
-                        
-            return False
-            
         except Exception as e:
-            self.logger.error(f"Unexpected error replying to comment {comment.id}: {str(e)}")
-            return False
+            # Handle Reddit API exceptions, including rate limits
+            error_message = str(e)
+            self.logger.warning(f"Reddit API Exception: {error_message}")
+            
+            # Check if it's a rate limit error
+            wait_time = self.rate_parser.parse_rate_limit_error(error_message)
+            if wait_time > 0:
+                self.logger.info(f"Rate limited. Waiting for {wait_time} seconds...")
+                time.sleep(wait_time + self.config.COMMENT_DELAY)  # Add extra delay after rate limit
+                
+                # Retry the comment
+                try:
+                    reply = comment.reply(self.config.REPLY_MESSAGE)
+                    self.replied_comments.add(comment.id)
+                    self.logger.info(f"Successfully replied to comment {comment.id} after rate limit wait")
+                    return True
+                except Exception as retry_e:
+                    self.logger.error(f"Failed to reply after rate limit wait: {str(retry_e)}")
+                    return False
+            else:
+                self.logger.error(f"Failed to reply to comment {comment.id}: {error_message}")
+                return False
             
     def monitor_post(self, post):
         """Monitor a specific post for new AutoModerator comments."""
