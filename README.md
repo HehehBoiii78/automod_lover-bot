@@ -2,7 +2,7 @@
 
 # automod_lover-bot
 
-automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments, while respecting Reddit's API rate limits and handling errors properly.
+Made using [Replit](https://repl.it), automod_lover-bot is a Python Reddit bot designed to automatically monitor the r/UpvoteAutomod subreddit and respond with "Good bot" to AutoModerator comments, while respecting Reddit's API rate limits and handling errors properly.
 
 ## Architecture
 
