@@ -1,4 +1,4 @@
-<img width="240" height="240" alt="profileIcon_srzv1qsrzv1qs" src="https://github.com/user-attachments/assets/86338a91-c0bc-4716-9dbe-c3ce48962d88" />
+<img width="80" height="80" alt="automod_lover-bot" src="https://github.com/user-attachments/assets/86338a91-c0bc-4716-9dbe-c3ce48962d88" />
 
 # automod_lover-bot
 
