@@ -47,4 +47,4 @@ Employs Python's built-in logging module with dual output streams - file-based l
 The bot was hosted on PythonAnywhere, where it ran continuously.
 
 ## Update (2025/8/27)
-The bot's third Reddit account got suspended, so I've decided to discontinue this project and quit making bots on Reddit, and as a result, I've archived this repository.
+The bot's third Reddit account got suspended, so I've deleted the account, discontinued this project and quit making bots on Reddit, and as a result, I've archived this repository.
