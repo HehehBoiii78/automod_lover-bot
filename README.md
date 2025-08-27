@@ -44,4 +44,7 @@ Employs Python's built-in logging module with dual output streams - file-based l
 - **re**: Regular expression parsing for rate limit error message analysis
 
 ## Hosting location
-The bot is hosted on PythonAnywhere, where it runs continuously.
+The bot was hosted on PythonAnywhere, where it ran continuously.
+
+## Update (2025/8/27)
+The bot's third Reddit account got suspended, so I've decided to discontinue this project and quit making bots on Reddit, and as a result, I've archived this repository.
